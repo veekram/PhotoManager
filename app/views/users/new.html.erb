@@ -1,0 +1,20 @@
+<div class="signup-container">
+  <h1> Sign Up</h1>
+  <%= form_for @user do |f| %>
+    <div>
+      <%= f.label :identity %>
+      <%= f.text_field :identity %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div>
+      <%= f.submit 'Create my account!' %>
+    </div>
+  <% end %>
+</div>
