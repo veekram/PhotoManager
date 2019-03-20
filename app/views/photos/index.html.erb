@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Photos</h1>
+<p> <%= link_to "Tweet my photos", 'https://arcane-ravine-29792.herokuapp.com/oauth/authorize?response_type=code&grant_type=authorization_code&client_id=04e0ca43f6b6c3d1b5d5d39a271fb6dc1cb399c43a58fc50205f5004c8e3ddc2&client_secret=c8e8f16962b15c38254aa7ac85136cf96eedadda3aa9d7f555d174913050021d&redirect_uri=http://localhost:3000/oauth/callback'%> </p>
+
+<table>
+  <tbody>
+    <tr>
+    <% @photos.each do |photo| %>
+      <td>
+        <%= photo.title %><br>
+        <%= image_tag photo.photo_url, height: "200", width: "200" %><br>
+        <%= button_to 'Tweet', tweet_photo_path(photo), method: :get %>
+      </td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Photo', new_photo_path %>
