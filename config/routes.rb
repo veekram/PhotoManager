@@ -13,4 +13,13 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  ## Photos
+  resources 'photos' do
+    member do
+      get '/tweet' => 'photos#tweet'
+    end
+  end
+
+  ## OAuth
+  get '/oauth/callback' => 'application#callback'
 end
