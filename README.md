@@ -16,3 +16,6 @@ The app to help you manage your photos at ease.
 4. ```rails s```
 5. In browser, open http://localhost:3000/
 
+## Time Taken
+9 hrs
+
