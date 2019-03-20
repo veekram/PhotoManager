@@ -1,6 +1,15 @@
 <div class="signup-container">
   <h1> Sign Up</h1>
   <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div>
       <%= f.label :identity %>
       <%= f.text_field :identity %>

@@ -1,13 +1,23 @@
 <div class="login-container">
   <h1> Login </h1>
   <%= form_for :login do |f| %>
+    <% if @errors %>
+      <div id="error_explanation">
+        <ul>
+          <% @errors.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div>
       <%= f.label :identity %>
       <%= f.text_field :identity, autofocus: true %>
     </div>
     <div>
       <%= f.label :password %>
-      <%= f.text_field :password %>
+      <%= f.password_field :password %>
     </div>
     <div>
       <%= f.submit 'Login' %>
