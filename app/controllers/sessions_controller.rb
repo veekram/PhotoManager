@@ -9,7 +9,18 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, notice: 'Logged in successfully.'
     else
-      flash.now.alert = 'Incorrect identity or password.'
+      identity = params.dig(:login, :identity)
+      password = params.dig(:login, :password)
+
+      @errors = if identity.blank? && password.blank?
+                  ['User ID is required.', 'Password is required.']
+                elsif identity.blank?
+                  ['User ID is required.']
+                elsif password.blank?
+                  ['Password is required.']
+                else
+                  ['There is no user whose user ID and password match.']
+                end
       render 'new'
     end
   end
